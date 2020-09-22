@@ -64,7 +64,7 @@ class ShowBigImageActivity : BaseActivity() {
             bundle.putSerializable(EXTRA_URL_LIST, urlList)
             intent.putExtras(bundle)
             intent.putExtra(EXTRA_CURR_INDEX, index)
-            context.startActivity(intent);
+            context.startActivity(intent)
         }
 
     }
@@ -80,8 +80,8 @@ class ShowBigImageActivity : BaseActivity() {
         if (Build.VERSION.SDK_INT >= 21) {
             var decorView = window.decorView
             var option = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-            decorView.systemUiVisibility = option;
-            window.statusBarColor = Color.TRANSPARENT;
+            decorView.systemUiVisibility = option
+            window.statusBarColor = Color.TRANSPARENT
         }
 
         supportActionBar?.hide()

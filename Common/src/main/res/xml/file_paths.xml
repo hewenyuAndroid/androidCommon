@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+    <root-path
+        name="root"
+        path="" />
+
+    <files-path
+        name="image"
+        path="newsee/files/" />
+
+    <cache-path
+        name="cache"
+        path="newsee/cache/" />
+
+    <external-path
+        name="external"
+        path="newsee/files/" />
+
+    <external-files-path
+        name="external_file_path"
+        path="newsee/" />
+
+    <external-cache-path
+        name="external_cache_path"
+        path="newsee/" />
+
+</paths>

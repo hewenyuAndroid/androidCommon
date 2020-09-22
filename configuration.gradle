@@ -2,7 +2,7 @@ ext {
 
     android = [
             compileSdkVersion: 28,
-            buildToolsVersion: "28.0.0",
+            buildToolsVersion: "28.0.3",
             minSdkVersion    : 16,
             targetSdkVersion : 28,
             versionCode      : 1,
@@ -57,7 +57,7 @@ ext {
             "pinyin"                 : "com.belerweb:pinyin4j:2.5.0",
 
             // 下拉刷新
-            "XRecyclerView"          : "com.jcodecraeer:xrecyclerview:1.5.9",
+            "XRecyclerView"          : "com.jcodecraeer:xrecyclerview:1.6.0",
 
             // 事件总线
             "eventBus"               : "org.greenrobot:eventbus:3.2.0",

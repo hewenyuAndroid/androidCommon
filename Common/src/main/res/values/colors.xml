@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="main_color">#008bec</color>
+
+
+    <color name="color_white">#FFFFFFFF</color>
+    <color name="color_black">#000000</color>
+    <color name="color_red">#FF0000</color>
+    <color name="color_red_66">#FF6666</color>
+    <color name="color_gray_8">#888888</color>
+    <color name="color_gray_c">#CCCCCC</color>
+    <color name="color_gray_C1">#C1C1C1</color>
+    <color name="color_gray_3">#333333</color>
+    <color name="color_gray_03">#030303</color>
+    <color name="color_gray_36">#363636</color>
+    <color name="color_gray_78">#787878</color>
+    <color name="color_gray_6">#666666</color>
+    <color name="color_gray_9">#999999</color>
+    <color name="color_gray_CB">#CBCBCB</color>
+    <color name="color_gray_C6">#C6C6C6</color>
+    <color name="color_gray_E3">#E3E3E3</color>
+    <color name="color_gray_E5">#E5E5E5</color>
+    <color name="color_gray_E">#EEEEEE</color>
+    <color name="color_gray_E1">#E1E1E1</color>
+    <color name="color_gray_F2">#F2F2F2</color>
+    <color name="color_gray_F3">#F3F3F3</color>
+    <color name="color_gray_F5">#F5F5F5</color>
+    <color name="color_gray_F1">#F1F1F1</color>
+    <color name="color_gray_EF">#EFEFEF</color>
+    <color name="color_gray_EB">#EBEBEB</color>
+    <color name="color_gray_93">#FF939393</color>
+    <color name="color_gray_D3">#FFD3D3D3</color>
+    <color name="color_gray_BA">#FFBABABA</color>
+    <color name="color_gray_B">#FFBBBBBB</color>
+    <color name="color_gray_F0">#FFF0F0F0</color>
+    <color name="color_gray_FA">#FFFAFAFA</color>
+    <color name="color_gray_DE">#FFDEDEDE</color>
+    <color name="color_gray_7A7373">#FF7A7373</color>
+
+</resources>

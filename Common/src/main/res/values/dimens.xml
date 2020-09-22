@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="dimens_title">18sp</dimen>
+    <dimen name="dimens_large">16sp</dimen>
+    <dimen name="dimens_midden">14sp</dimen>
+    <dimen name="dimens_small">12sp</dimen>
+    <dimen name="dimens_nano">10sp</dimen>
+
+</resources>

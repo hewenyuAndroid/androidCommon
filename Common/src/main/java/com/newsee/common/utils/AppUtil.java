@@ -11,6 +11,7 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.text.TextUtils;
 
+import com.newsee.common.global.FileProvider7;
 import com.newsee.common.global.PermissionManager;
 
 import java.io.File;
@@ -92,36 +93,38 @@ public class AppUtil {
     /**
      * 安装应用
      *
-     * @param context
-     * @param apkFile
+     * @param activity
+     * @param path
      * @return
      */
-    public static boolean installApp(Context context, File apkFile) {
-        try {
-            context.startActivity(getInstallAppIntent(apkFile));
-            return true;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return false;
-    }
+    public static void installApp(Activity activity, final String path) {
+        PermissionManager.requestPermission(activity, new String[]{
+                Manifest.permission.READ_EXTERNAL_STORAGE,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE
+        }, new PermissionManager.OnRequestPermissionListener() {
+            @Override
+            public void onPermissionGranted(Context context) {
+                try {
+                    Intent intent = new Intent(Intent.ACTION_VIEW);
+                    FileProvider7.setIntentDataAndType(
+                            context,
+                            intent,
+                            "application/vnd.android.package-archive",
+                            new File(path),
+                            true
+                    );
+                    context.startActivity(intent);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
 
-    /**
-     * 获取安装应用的Intent
-     *
-     * @param apkFile
-     * @return
-     */
-    private static Intent getInstallAppIntent(File apkFile) {
-        if (apkFile == null || !apkFile.exists()) {
-            return null;
-        }
-
-        Uri uri = Uri.fromFile(apkFile);
-        Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        intent.setDataAndType(uri, "application/vnd.android.package-archive");
-        return intent;
+            @Override
+            public void onPermissionDenied(Context context) {
+                PermissionManager.showTipsDialog(context);
+            }
+        });
+        
     }
 
     /**
@@ -207,6 +210,21 @@ public class AppUtil {
             e.printStackTrace();
         }
         return value;
+    }
+
+    /**
+     * 判断当前是否是Debug
+     *
+     * @param context
+     * @return
+     */
+    public static boolean isApkDebug(Context context) {
+        try {
+            ApplicationInfo info = context.getApplicationInfo();
+            return (info.flags & ApplicationInfo.FLAG_DEBUGGABLE) != 0;
+        } catch (Exception e) {
+            return false;
+        }
     }
 
     /**

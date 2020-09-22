@@ -1,9 +1,11 @@
 package com.newsee.common.db;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Environment;
+import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
 
 import java.io.File;
@@ -69,6 +71,13 @@ public class DaoSupportFactory {
         if (TextUtils.isEmpty(cacheDir)) {
             throw new RuntimeException("No find db cache dir!");
         }
+
+        // 判断是否有读写权限
+        if (ContextCompat.checkSelfPermission(context, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED
+                || ContextCompat.checkSelfPermission(context, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+            return;
+        }
+
         closeDb();
         this.mContext = context.getApplicationContext();
         this.mDbName = checkDbName(context, dbName);

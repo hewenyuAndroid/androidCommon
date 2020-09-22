@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="XTextView">
+        <!-- tag属性 -->
+        <attr name="tvTagText" format="string" />
+        <attr name="tvTagTextSize" format="dimension" />
+        <attr name="tvTagTextColor" format="color" />
+        <attr name="tvTagPadding" format="dimension" />
+        <attr name="tvTagTextBold" format="boolean" />
+        <attr name="tvTagSeparator" format="string" />
+        <attr name="tvTagSeparatorColor" format="color" />
+        <attr name="tvTagSeparatorSpace" format="dimension" />
+        <attr name="tvTagGravity" format="enum">
+            <enum name="left" value="1" />
+            <enum name="right" value="2" />
+        </attr>
+        <!-- 顶部/底部分割线 -->
+        <attr name="tvLineColor" format="color" />
+        <attr name="tvLineTopSize" format="dimension" />
+        <attr name="tvLineTopMarginLeft" format="dimension" />
+        <attr name="tvLineTopMarginRight" format="dimension" />
+        <attr name="tvLineBottomSize" format="dimension" />
+        <attr name="tvLineBottomMarginLeft" format="dimension" />
+        <attr name="tvLineBottomMarginRight" format="dimension" />
+        <!-- 边框属性 -->
+        <attr name="tvBorderSize" format="dimension" />
+        <attr name="tvBorderColor" format="color" />
+        <attr name="tvBorderCorner" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="LoadingView">
+        <attr name="lvBorderWidth" format="dimension" />
+        <attr name="lvBorderColor" format="color" />
+        <attr name="lvCoverColor" format="color" />
+        <attr name="lvCoverPercent" format="float" />
+        <attr name="lvDuration" format="integer" />
+    </declare-styleable>
+
+</resources>

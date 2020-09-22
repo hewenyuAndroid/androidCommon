@@ -4,6 +4,11 @@ import android.app.Activity;
 import android.app.Application;
 import android.os.Bundle;
 
+import com.newsee.common.db.DaoSupportFactory;
+import com.newsee.common.dialog.DialogManager;
+import com.newsee.common.utils.AppUtil;
+import com.newsee.common.utils.ToastUtil;
+
 /**
  * ====================================
  * 作者: hewenyu
@@ -19,7 +24,12 @@ public class CommonApplication {
 
     private static Application sApplication;
 
-    private static final CommonApplication getInstance() {
+    /**
+     * 控制debug版本输出日志
+     */
+    private boolean isDebug = false;
+
+    public static final CommonApplication getInstance() {
         if (sInstance == null) {
             synchronized (CommonApplication.class) {
                 if (sInstance == null) {
@@ -34,10 +44,19 @@ public class CommonApplication {
 
     }
 
+    /**
+     * init() 之前需要增加 OkHttp 拦截器
+     *
+     * @param application
+     */
     public void init(Application application) {
         sApplication = application;
+        isDebug = AppUtil.isApkDebug(application);
 
         initLifeCycle();
+        ToastUtil.init(application);
+        DaoSupportFactory.getInstance()
+                .init(application, AppUtil.getAppName(application), "common");
 
     }
 
@@ -46,6 +65,19 @@ public class CommonApplication {
             throw new RuntimeException("please call init()");
         }
         return sApplication;
+    }
+
+    public void setDebug(boolean debug) {
+        isDebug = debug;
+    }
+
+    /**
+     * 是否可以输出日志
+     *
+     * @return
+     */
+    public boolean canOutputHttpLog() {
+        return isDebug;
     }
 
     // endregion ------------------------------------------------------------------------
@@ -86,6 +118,7 @@ public class CommonApplication {
 
             @Override
             public void onActivityDestroyed(Activity activity) {
+                DialogManager.getInstance().releaseDialogWithContext(activity);
                 AppManager.getInstance().detachActivity(activity);
             }
         });
